@@ -2,7 +2,7 @@ package com.stackroute.controller;
 
 public class User {
     private String userName;
-    private int age;
+    private String password;
 
     public String getUserName() {
         return userName;
@@ -12,24 +12,12 @@ public class User {
         this.userName = userName;
     }
 
-    public int getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public User(String userName, int age) {
-        this.userName = userName;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
