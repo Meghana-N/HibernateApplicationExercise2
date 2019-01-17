@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-
     @RequestMapping(value = "/")
-    public String greeting(ModelMap map){
-        map.addAttribute("greeting","Welcome");
+    public String userInfo(ModelMap map){
+        User user = new User("Bob",20);
+        map.addAttribute("Username",user.getUserName());
         return "index";
-
     }
 }

@@ -4,8 +4,8 @@
 
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>User Info</h2>
 
-<h2>Greetings : ${greeting}</h2>
+<h2>Username : ${Username}</h2>
 </body>
 </html>
