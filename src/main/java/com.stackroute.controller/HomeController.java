@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 @Controller
 public class HomeController {
+    Connection con = null;
     User user = new User();
 
     @RequestMapping(value = "/")
@@ -24,7 +26,7 @@ public class HomeController {
     {
         User user = new User();
 
-        Connection con;
+        Connection con = null;
         int status;
 
         user.setUserName(request.getParameter("username"));
@@ -51,6 +53,11 @@ public class HomeController {
         catch(Exception e)
         {
             System.out.println(e);
+        }
+        finally{
+            try{
+                con.close();
+            }catch(SQLException e){}
         }
 
         String message = "Welcome to Stackroute " + username;
