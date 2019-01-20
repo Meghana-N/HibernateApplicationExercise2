@@ -22,11 +22,16 @@ public class HomeController {
     @RequestMapping(value = "login")
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
+        User user = new User();
+
         Connection con;
         int status;
 
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
+        user.setUserName(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
+
+        String username = user.getUserName();
+        String password = user.getPassword();
 
         try{
             //Resister Driver with driver manager service
@@ -34,12 +39,11 @@ public class HomeController {
             System.out.println("Driver loaded");//create connection
             //here User is database name, user is username and root123 is password
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/User","user","root123");
-            //create statement object
             System.out.println("got connected");
+            //create statement object
+            Statement st = con.createStatement();
 
-            Statement st=con.createStatement();
-
-            status=st.executeUpdate("insert into UserInfo(username,password)values('"+username+"','"+password+"')");
+            status = st.executeUpdate("insert into UserInfo(username,password)values('"+username+"','"+password+"')");
 
             System.out.println("data updated");
             con.close();
@@ -50,11 +54,9 @@ public class HomeController {
         }
 
         String message = "Welcome to Stackroute " + username;
-
         ModelAndView modelView = new ModelAndView();
         modelView.setViewName("display");
         modelView.addObject("result",message);
         return modelView;
-
     }
 }
