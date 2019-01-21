@@ -2,3 +2,5 @@
 /home/user/IdeaProjects/SpringMvcApplication/src/main/java/com.stackroute.controller/HomeController.java
 /home/user/IdeaProjects/SpringMvcApplication/src/main/java/com.stackroute.controller/User.java
 /home/user/IdeaProjects/SpringMvcApplication/src/main/java/com.stackroute.configuration/HomeConfiguration.java
+/home/user/IdeaProjects/SpringMvcApplication/src/main/java/com/stackroute/dao/UserDao.java
+/home/user/IdeaProjects/SpringMvcApplication/src/main/java/com.stackroute.configuration/HibernateConfig.java
